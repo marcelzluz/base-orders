@@ -6,11 +6,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+    baseDirectory: __dirname,
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+    ...compat.config({
+        extends: [
+            "next/core-web-vitals",
+            "plugin:tailwindcss/recommended",
+            "prettier",
+        ],
+        plugins: ["prettier", "tailwindcss"],
+        rules: {
+            "prettier/prettier": "error",
+            "tailwindcss/classnames-order": "off",
+        },
+    }),
 ];
 
 export default eslintConfig;

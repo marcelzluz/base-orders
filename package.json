@@ -1,27 +1,65 @@
 {
-  "name": "base-orders",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.2"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.2",
-    "@eslint/eslintrc": "^3"
-  }
+    "name": "base-orders",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --write .",
+        "check:format": "prettier --check .",
+        "prepare": "husky install",
+        "test": "jest"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.14.0",
+        "@emotion/styled": "^11.14.0",
+        "@hookform/resolvers": "^5.0.1",
+        "@mui/icons-material": "^7.1.0",
+        "@mui/material": "^7.1.0",
+        "@mui/x-data-grid": "^8.5.0",
+        "autoprefixer": "^10.4.21",
+        "msw": "^2.8.5",
+        "next": "15.2.4",
+        "postcss": "^8.5.3",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-hook-form": "^7.56.4",
+        "zod": "^3.25.34",
+        "zustand": "^5.0.5"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@tailwindcss/forms": "^0.5.10",
+        "@tailwindcss/postcss": "^4",
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.3.0",
+        "@testing-library/user-event": "^14.6.1",
+        "@types/jest": "^29.5.14",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "@typescript-eslint/eslint-plugin": "^8.28.0",
+        "@typescript-eslint/parser": "^8.28.0",
+        "eslint": "^9",
+        "eslint-config-next": "15.2.4",
+        "eslint-config-prettier": "^10.1.1",
+        "eslint-plugin-prettier": "^5.2.5",
+        "eslint-plugin-tailwindcss": "^3.18.0",
+        "husky": "^9.1.7",
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^30.0.0-beta.3",
+        "lint-staged": "^15.5.0",
+        "prettier": "^3.5.3",
+        "prettier-plugin-tailwindcss": "^0.6.11",
+        "tailwindcss": "3.4.17",
+        "ts-jest": "^29.3.4",
+        "typescript": "^5"
+    },
+    "msw": {
+        "workerDirectory": [
+            "public"
+        ]
+    }
 }
