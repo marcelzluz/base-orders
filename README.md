@@ -14,10 +14,11 @@ Este repositório contém um **simulador de execução de ordens** inspirado em 
 4. [Links](#links)
 5. [Requerimentos](#requerimentos)
 6. [Iniciar](#-iniciar)
-7. [Organização de Arquivos](#-organização-de-arquivos)
-8. [Limitações e Próximos Passos](#-limitações-e-próximos-passos)
-9. [Reflexões e Aprendizados](#-reflexões-e-aprendizados)
-10. [Autor](#-autor)
+7. [🧹 Resetar Dados Mockados](#-resetar-dados-mockados)
+8. [Organização de Arquivos](#-organização-de-arquivos)
+9. [Limitações e Próximos Passos](#-limitações-e-próximos-passos)
+10. [Reflexões e Aprendizados](#-reflexões-e-aprendizados)
+11. [Autor](#-autor)
 
 ---
 
@@ -173,6 +174,44 @@ $ yarn format
 # Executa Jest (apenas configurações; testes pendentes)
 $ yarn test
 ```
+
+---
+
+## 🧹 Resetar Dados Mockados
+
+Caso você deseje **limpar todos os dados de ordens simuladas** (armazenados em `localStorage`), siga estes passos detalhados. Essas instruções funcionam na maioria dos navegadores modernos (Google Chrome, Firefox, Edge):
+
+1. **Abra o navegador e carregue a aplicação**  
+   - Certifique-se de ter executado `yarn dev` e de estar acessando `http://localhost:3000`.
+
+2. **Abra as Ferramentas de Desenvolvedor (DevTools)**  
+   - **Windows/Linux**: pressione `F12` ou `Ctrl + Shift + I`.  
+   - **macOS**: pressione `⌘ + Option + I` (Command + Option + I).
+
+3. **Vá para a aba “Application” (Chrome/Edge) ou “Storage” (Firefox)**  
+   - **Chrome/Edge**: clique em **Application** no topo ou no menu lateral.  
+   - **Firefox**: clique em **Storage** no topo.
+
+4. **Localize “Local Storage” no painel esquerdo**  
+   - Dentro de **Application** (ou **Storage**), expanda o nó **Local Storage**.  
+   - Você verá uma lista de origens (websites) armazenadas.  
+   - Encontre e clique em **`http://localhost:3000`**.
+
+5. **Remova os dados do `localStorage`**  
+   - Ao selecionar **`http://localhost:3000`**, o painel principal mostrará todas as **chaves** e **valores** salvos.  
+   - **Para apagar tudo**: clique com o botão direito em qualquer linha listada e escolha **“Clear”** (ou “Limpar tudo”).  
+     - Em alguns navegadores, há um **botão “Clear All”** (ícone de lixeira) no topo da tabela.  
+   - **Se preferir apagar apenas a chave que armazena ordens**:  
+     - Procure pela chave **`orders`** (ou similar).  
+     - Clique com o botão direito → **“Delete”**.
+
+6. **Feche o DevTools e recarregue a página**  
+   - Depois de limpar, recarregue a página (`F5` ou botão de refresh).  
+   - A aplicação retornará ao **estado inicial** (sem nenhuma ordem no mock).
+
+> **Observação:**  
+> - Ao reiniciar o servidor (`yarn dev`), o MSW recarrega os dados padrões automaticamente.  
+> - Se você estiver usando outra porta (por exemplo, `http://localhost:3001`), selecione a origem correspondente em **Local Storage**.
 
 ---
 
