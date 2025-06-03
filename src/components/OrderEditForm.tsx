@@ -72,7 +72,6 @@ export function OrderEditForm({ open, order, onClose }: OrderEditFormProps) {
     };
 
     const handleConfirm = async () => {
-        console.log("Confirming update, pendingData:", pendingData);
         if (!pendingData) return;
 
         const parsedQty = Number(pendingData.quantity);
@@ -80,10 +79,7 @@ export function OrderEditForm({ open, order, onClose }: OrderEditFormProps) {
         const parsedPrice =
             typeof rawPrice === "string"
                 ? Number(rawPrice.replace(",", "."))
-                : rawPrice; // já é número
-        console.log("Parsed price:", parsedPrice);
-        console.log("Order ID:", order.id);
-
+                : rawPrice;
         try {
             await updateOrder(order.id.toString(), {
                 quantity: parsedQty,

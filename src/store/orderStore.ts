@@ -29,14 +29,11 @@ export const useOrderStore = create<PersistState & NonPersistState>()(
             selectedOrder: null,
 
             async fetchOrders() {
-                console.log("[store] fetchOrders called");
                 set({ loading: true, error: null });
                 try {
                     const data = await orderService.getOrders();
-                    console.log("[store] fetchOrders success", data);
                     set({ orders: data, loading: false });
                 } catch (err: any) {
-                    console.log("[store] fetchOrders error", err);
                     set({
                         error: err.message || "Erro ao buscar ordens",
                         loading: false,
@@ -45,7 +42,6 @@ export const useOrderStore = create<PersistState & NonPersistState>()(
             },
 
             async fetchOrderById(id: string) {
-                console.log("[store] fetchOrderById called", id);
                 set({ loading: true, error: null, selectedOrder: null });
                 try {
                     const order = await orderService.getOrderById(id);
@@ -59,7 +55,6 @@ export const useOrderStore = create<PersistState & NonPersistState>()(
             },
 
             async createOrder(data: NewOrderForm) {
-                console.log("[store] createOrder called", data);
                 set({ loading: true, error: null });
                 try {
                     const newOrder = await orderService.createOrder(data);
@@ -75,7 +70,6 @@ export const useOrderStore = create<PersistState & NonPersistState>()(
             },
 
             async updateOrder(id: string, data: Partial<Order>) {
-                console.log("[store] updateOrder called", id, data);
                 set({ loading: true, error: null });
                 try {
                     const updated = await orderService.updateOrder(id, data);
@@ -91,7 +85,6 @@ export const useOrderStore = create<PersistState & NonPersistState>()(
             },
 
             async cancelOrder(id: string) {
-                console.log("[store] cancelOrder called", id);
                 set({ loading: true, error: null });
                 try {
                     const cancelled = await orderService.cancelOrder(id);
@@ -107,7 +100,6 @@ export const useOrderStore = create<PersistState & NonPersistState>()(
             },
 
             clearSelected() {
-                console.log("[store] clearSelected called");
                 set({ selectedOrder: null });
             },
         }),

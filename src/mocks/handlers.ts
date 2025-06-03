@@ -20,7 +20,6 @@ function saveOrders(orders: Order[]) {
 export const handlers = [
     // Lista todas as ordens
     http.get("/api/orders", () => {
-        console.log("[MSW HANDLER] GET /api/orders chamado!");
         const orders = loadOrders();
         return HttpResponse.json(orders, { status: 200 });
     }),
