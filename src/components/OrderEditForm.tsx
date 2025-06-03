@@ -235,8 +235,11 @@ export function OrderEditForm({ open, order, onClose }: OrderEditFormProps) {
                         </Button>
                         <Button
                             variant="contained"
-                            color="primary"
                             type="submit"
+                            sx={{
+                                backgroundColor: "customColors.base",
+                                color: "customColors.bgPaper",
+                            }}
                             disabled={!isValid || isSubmitting}>
                             Salvar
                         </Button>
