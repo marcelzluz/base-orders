@@ -138,7 +138,7 @@ Antes de iniciar 🏁, você precisa ter instalado:
 
 ```bash
 # Clone este projeto
-$ git clone https://github.com/SEU-USERNAME/base-orders.git
+$ git clone https://github.com/marcelzluz/base-orders.git
 
 # Acesse a pasta do projeto
 $ cd base-orders
